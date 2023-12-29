@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  color: inherit;
+}
+body {
+  font-family: "Poppins", Arial, sans-serif;
+}
+h1,
+h2 {
+  font-family: "Abril Fatface", cursive;
+}
+.aside-bg-1 {
+  background: url(./assets/aside.png) no-repeat right top #000;
+}
+.aside-bg-2 {
+  background-image: url(./assets/bg_1.jpg);
+}
