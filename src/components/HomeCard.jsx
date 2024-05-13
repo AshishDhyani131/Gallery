@@ -1,19 +1,20 @@
-export default function GalleryCard({
-  imgSrc,
-  subheading,
-  heading,
-  order = false,
-}) {
-  const descClass = `px-10  my-auto  ${
-    order ? "sm:order-first sm:text-right" : "sm:order-last sm:text-left"
+import { forwardRef } from "react";
+const HomeCard = forwardRef(function HomeCard(
+  { alt, imgSrc, subheading, heading, order },
+  ref
+) {
+  const descClass = `px-10  py-12 my-auto  ${
+    order === "first"
+      ? "sm:order-first sm:text-right"
+      : "sm:order-last sm:text-left"
   } lg:px-16`;
   return (
-    <div className="grid grid-cols-1 mx-3 sm:grid-cols-2 lg:mx-0">
+    <div ref={ref} className="grid grid-cols-1 mx-3 sm:grid-cols-2 lg:mx-0">
       <div className="relative group">
         <img
           src={imgSrc}
-          alt="gallery-img"
-          className="h-screen w-full object-cover object-center"
+          alt={alt}
+          className="h-screen w-full object-cover object-center grayscale"
         ></img>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white border-solid p-1 opacity-0  group-hover:opacity-100 duration-300">
           <svg
@@ -34,9 +35,11 @@ export default function GalleryCard({
       </div>
       <div className={descClass}>
         <h3 className="text-[#373737] uppercase text-sm font-bold tracking-[3px] mb-2">
-          {subheading}
+          {subheading || "earth"}
         </h3>
-        <h2 className="text-white text-4xl font-bold mb-5">{heading}</h2>
+        <h2 className="text-white text-4xl font-bold mb-5 capitalize truncate tracking-wide">
+          {heading || alt}
+        </h2>
 
         <p className=" text-white/25 text-base font-normal mb-8">
           Far far away, behind the word mountains, far from the countries
@@ -53,4 +56,5 @@ export default function GalleryCard({
       </div>
     </div>
   );
-}
+});
+export default HomeCard;

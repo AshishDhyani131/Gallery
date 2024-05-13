@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 export default function Header() {
   const link =
     "border-b-2 border-transparent hover:text-yellow-400 hover:border-b-2 hover:border-yellow-400 duration-300";
@@ -41,7 +42,7 @@ export default function Header() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              className="ionicon h-8 w-8 stroke-2"
+              className="ionicon h-4 w-4 phone:h-8 phone:w-8 stroke-2"
             >
               <path
                 fill="none"
@@ -53,47 +54,62 @@ export default function Header() {
               />
             </svg>
           </div>
-          <h2 className="aside-bg-2 text-[2.5rem] sm:text-6xl font-bold  text-transparent  tracking-[1px] bg-clip-text bg-[center_19.4rem] mb-6">
+          <h2 className="aside-bg-2 text-[2rem] phone:text-[2.5rem] sm:text-6xl font-bold  text-transparent  tracking-[1px] bg-clip-text bg-[center_19.4rem] mb-6">
             Mostudio
           </h2>
           <nav className="mb-28">
-            <ul className="text-white flex flex-col uppercase gap-6 font-semibold text-base tracking-[1px] ">
+            <ul className="text-white flex flex-col uppercase gap-6 font-semibold text-[0.8rem] phone:text-base sm:text-lg tracking-[1px] ">
               <li>
-                <a href="#" className={activeLink}>
+                <NavLink
+                  to={"/"}
+                  className={({ isActive }) => (isActive ? activeLink : link)}
+                >
                   Home
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="#" className={link}>
+                <NavLink
+                  to={"/gallery"}
+                  className={({ isActive }) => (isActive ? activeLink : link)}
+                >
                   gallery
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="#" className={link}>
+                <NavLink
+                  to={"/about"}
+                  className={({ isActive }) => (isActive ? activeLink : link)}
+                >
                   about
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="#" className={link}>
+                <NavLink
+                  to={"/pricing"}
+                  className={({ isActive }) => (isActive ? activeLink : link)}
+                >
                   pricing
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a href="#" className={link}>
+                <NavLink
+                  to={"/contact"}
+                  className={({ isActive }) => (isActive ? activeLink : link)}
+                >
                   contact
-                </a>
+                </NavLink>
               </li>
             </ul>
           </nav>
           <form action="" method="post">
-            <h3 className="text-gray-400 uppercase text-sm font-semibold mb-2">
+            <h3 className="text-gray-400 uppercase text-xs phone:text-sm sm:text-lg font-semibold mb-2">
               Subscribe for newsletter
             </h3>
             <input
               type="email"
               name="email"
               id="email"
-              className="w-full bg-transparent border rounded-none border-gray-400 border-solid p-3 placeholder:text-gray-400 placeholder:text-sm focus:outline-none focus:text-gray-400"
+              className="w-full bg-transparent border rounded-none border-gray-400 border-solid p-2 phone:p-3 placeholder:text-gray-400 placeholder:text-sm focus:outline-none focus:text-gray-400"
               placeholder="Enter Email Address"
             />
           </form>
