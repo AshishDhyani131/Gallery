@@ -37,7 +37,7 @@ const HomeCard = forwardRef(function HomeCard(
         <h3 className="text-[#373737] uppercase text-sm font-bold tracking-[3px] mb-2">
           {subheading || "earth"}
         </h3>
-        <h2 className="text-white text-4xl font-bold mb-5 capitalize truncate tracking-wide">
+        <h2 className="text-white text-4xl font-bold mb-5 capitalize line-clamp-2 tracking-wide">
           {heading || alt}
         </h2>
 
